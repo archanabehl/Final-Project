@@ -114,9 +114,8 @@ document.addEventListener("DOMContentLoaded", function() {
     for (i = 0; i <= LIST.length; i++) {
       if (LIST[element.id].done) {
         newDoneList.length == i;
-        console.log(newDoneList.length);
+
         document.querySelector(".alreadyDone").innerHTML = newDoneList.length;
-        console.log(newDoneList.length);
       }
     }
     updateCounter();
@@ -152,28 +151,30 @@ document.addEventListener("DOMContentLoaded", function() {
   //FOR PROGRESS BAR
   function update() {
     var progress = document.getElementById("myprogressBar");
+    progress.style.width = "0%";
+    progress.innerHTML = "0%";
     var currentWidth = 0;
-    var width = (completedAmount() / totalAmount()) * 100;
-    var id = setInterval(frame, 30);
-    function frame() {
-      if (currentWidth >= width) {
-        clearInterval(id);
-      }
-      // else if (currentWidth == 0) {
-      //   document.getElementById("myprogressBar").style.innerHTML = "";
-      // }
-      else {
-        currentWidth++;
-        progress.style.width = currentWidth + "%";
+    if (totalAmount() > 0) {
+      var width = Math.round((completedAmount() / totalAmount()) * 100);
+      var id = setInterval(frame, 30);
+      function frame() {
+        if (currentWidth >= width) {
+          clearInterval(id);
+        } else {
+          currentWidth++;
+          progress.style.width = currentWidth + "%";
+          progress.innerHTML = width + "%";
+        }
       }
     }
   }
-  update();
+
   //dynamic counter
   function updateCounter() {
     document.querySelector(".totalToDo").innerHTML = totalAmount();
     document.querySelector(".alreadyDone").innerHTML = completedAmount();
   }
+
   function completedAmount() {
     return LIST.filter(item => {
       return item.done && !item.trash;
@@ -185,9 +186,4 @@ document.addEventListener("DOMContentLoaded", function() {
       return !item.trash;
     }).length;
   }
-
-  // function progressBarCounter() {
-  //   completedAmount();
-  //   document.getElementById("myprogressBar").innerHTML = LIST.length;
-  // }
 });
