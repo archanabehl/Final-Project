@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     updateCounter();
     update();
-    progressBarCounter();
+    // progressBarCounter();
   }
 
   //clear the local storage
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
       localStorage.setItem("TODO", JSON.stringify(LIST));
       updateCounter();
       update(); // document.querySelector(".totalToDo").innerHTML = id;
-      progressBarCounter();
+      // progressBarCounter();
       id++;
     } else {
       alert("please enter your list");
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     updateCounter();
     update();
-    progressBarCounter();
+    // progressBarCounter();
   }
 
   //FUNCTION (4)-------------------------------------------------------------
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function() {
     LIST[element.id].trash = true;
     updateCounter();
     update();
-    progressBarCounter();
+    // progressBarCounter();
   }
 
   //target the items created dynamically
@@ -158,9 +158,11 @@ document.addEventListener("DOMContentLoaded", function() {
     function frame() {
       if (currentWidth >= width) {
         clearInterval(id);
-      } else if (currentWidth == 0) {
-        document.getElementById("myprogressBar").style.innerHTML = "";
-      } else {
+      }
+      // else if (currentWidth == 0) {
+      //   document.getElementById("myprogressBar").style.innerHTML = "";
+      // }
+      else {
         currentWidth++;
         progress.style.width = currentWidth + "%";
       }
@@ -184,8 +186,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }).length;
   }
 
-  function progressBarCounter() {
-    completedAmount();
-    document.getElementById("myprogressBar").innerHTML = LIST.length;
-  }
+  // function progressBarCounter() {
+  //   completedAmount();
+  //   document.getElementById("myprogressBar").innerHTML = LIST.length;
+  // }
 });
