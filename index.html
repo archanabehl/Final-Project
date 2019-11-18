@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Final FEWD Project</title>
+    <meta charset="UTF-8" />
+    <meta name="description" content="FEWD" />
+    <meta name="keywords" content="HTML, CSS, XML, JavaScript" />
+    <meta name="author" content="Archana Behl" />
+    <meta name="viewport" content="width=device-width, intial-scale=0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,700i&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+      type="text/css"
+    />
+
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+  </head>
+
+  <body>
+    <div id="app" class="container">
+      <header>
+        <div class="flex-row  bg-grey">
+          <i class="material-icons" style="font-size: 80px;"> assignment</i>
+          <div class="flex-column font-size-1-rem pl-1-rem ">
+            <h1 class="text-yellow pl-1-rem  ">To-Do List</h1>
+            <div class="bg-blue flex-grow w-100vw">
+              <h1 class="text-white pl-1-rem">WEEKLY</h1>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main>
+        <!-- This is first button -->
+        <div id="button" class="flex-row mr-2-rem ">
+          <div id="To-Do" class="flex-column border flex-grow-2 mr-rt-2-rem  ">
+            <div
+              class=" flex-row bg-todo-blue align-items-center justify-content-center text-white "
+            >
+              <i class="material-icons" style="font-size: 40px;">
+                play_arrow
+              </i>
+
+              <p>Total to do</p>
+            </div>
+            <div
+              class="flex-row bg-button-grey align-items-center justify-content-center "
+            >
+              <p class="totalToDo">0</p>
+            </div>
+          </div>
+          <!-- This is second button -->
+          <div
+            id="not-started"
+            class="border flex-column flex-grow-1 mr-rt-2-rem "
+          >
+            <div
+              class="flex-row bg-notstarted-red align-items-center justify-content-center text-white "
+            >
+              <p>Not Started</p>
+              <i class="material-icons" style="font-size: 40px;">
+                sentiment_dissatisfied
+              </i>
+            </div>
+            <div
+              class=" flex-row bg-button-grey align-items-center justify-content-center "
+            >
+              <p>0</p>
+            </div>
+          </div>
+          <!-- This is third button        -->
+          <div
+            id="in-progress"
+            class="border flex-column flex-grow-1 mr-rt-2-rem "
+          >
+            <div
+              class="flex-row bg-inprogress-yellow align-items-center justify-content-center text-white "
+            >
+              <p>In progress</p>
+              <i class="material-icons" style="font-size: 40px;">
+                sentiment_satisfied
+              </i>
+            </div>
+            <div
+              class=" flex-row bg-button-grey align-items-center justify-content-center "
+            >
+              <p>0</p>
+            </div>
+          </div>
+          <!-- This is fourth button -->
+          <div id="completed" class="border flex-column flex-grow-1 ">
+            <div
+              class="flex-row bg-completed-green align-items-center justify-content-center text-white "
+            >
+              <p>Completed</p>
+              <i class="material-icons" style="font-size: 40px;">
+                sentiment_very_satisfied
+              </i>
+            </div>
+            <div
+              class=" flex-row bg-button-grey align-items-center justify-content-center "
+            >
+              <p class="alreadyDone"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- This is progress bar -->
+        <div id="progress-status" class="border flex-row mr-2-rem ">
+          <p id="myprogressBar"></p>
+        </div>
+
+        <!-- This is the beginning of main -->
+        <!-- This is submit form -->
+
+        <form class="flex-row mr-2-rem ">
+          <input
+            id="input"
+            type="text"
+            placeholder="Add To Do"
+            class="border mr-rt-2-rem pd-1-rem font-size-1-rem"
+          />
+          <button type="button" id="button" class="border pd-1-rem">
+            Add Task
+          </button>
+          <div class="clear mr-lt-1-rem">
+            <i class="fa fa-refresh fa-3x"> </i>
+          </div>
+          <div class=" mr-lt-1-rem font-size-2-em" id="date"></div>
+        </form>
+      </main>
+      <section>
+        <ul id="list">
+          <!-- <li class=" flex-row"> -->
+          <!-- <i class="fa fa-circle-thin co fa-2x" job="complete" id="0"></i>
+            <p class="text mr-rt-auto mr-lt-1-rem font-size-1-5-em"
+              >Drink Coffee</p
+            >
+            <i class="fa fa-trash-o de fa-2x" job="delete" id="0"></i> -->
+          <!-- </li> -->
+        </ul>
+      </section>
+    </div>
+    <script src="js/main.js" type="text/javascript"></script>
+  </body>
+</html>
