@@ -37,24 +37,29 @@
   <body>
     <div id="app" class="container">
       <header>
-        <div class="flex-row  bg-grey">
-          <i class="material-icons" style="font-size: 80px;"> assignment</i>
-          <div class="flex-column font-size-1-rem pl-1-rem ">
-            <h1 class="text-yellow pl-1-rem  ">To-Do List</h1>
-            <div class="bg-blue flex-grow w-100vw">
-              <h1 class="text-white pl-1-rem">WEEKLY</h1>
-            </div>
+        <div class="flex-row bg-grey">
+          <div>
+            <i class="material-icons" style="font-size: 80px;"> assignment</i>
+          </div>
+          <div class="flex-column flex-grow-1">
+            <h1 class="text-white font-size-2-em   ">
+              To-Do List
+            </h1>
+            <h1 class="text-white pl-1-rem bg-blue pd-1-rem">WEEKLY</h1>
           </div>
         </div>
       </header>
       <main>
         <!-- This is first button -->
         <div id="button" class="flex-row mr-2-rem ">
-          <div id="To-Do" class="flex-column border flex-grow-2 mr-rt-2-rem  ">
+          <div
+            id="To-Do"
+            class="flex-column border mb-flex-grow-1 flex-grow-2 mr-rt-2-rem mobile-only large-tablet-only desktop-only "
+          >
             <div
               class=" flex-row bg-todo-blue align-items-center justify-content-center text-white "
             >
-              <i class="material-icons" style="font-size: 40px;">
+              <i class="material-icons">
                 play_arrow
               </i>
 
@@ -69,18 +74,18 @@
           <!-- This is second button -->
           <div
             id="not-started"
-            class="border flex-column flex-grow-1 mr-rt-2-rem "
+            class="border flex-column flex-grow-1 mr-rt-2-rem large-tablet-only desktop-only"
           >
             <div
               class="flex-row bg-notstarted-red align-items-center justify-content-center text-white "
             >
               <p>Not Started</p>
-              <i class="material-icons" style="font-size: 40px;">
+              <i class="material-icons">
                 sentiment_dissatisfied
               </i>
             </div>
             <div
-              class=" flex-row bg-button-grey align-items-center justify-content-center "
+              class=" flex-row  bg-button-grey align-items-center justify-content-center "
             >
               <p>0</p>
             </div>
@@ -88,13 +93,13 @@
           <!-- This is third button        -->
           <div
             id="in-progress"
-            class="border flex-column flex-grow-1 mr-rt-2-rem "
+            class="border flex-column flex-grow-1 mr-rt-2-rem large-tablet-only desktop-only"
           >
             <div
               class="flex-row bg-inprogress-yellow align-items-center justify-content-center text-white "
             >
               <p>In progress</p>
-              <i class="material-icons" style="font-size: 40px;">
+              <i class="material-icons">
                 sentiment_satisfied
               </i>
             </div>
@@ -105,14 +110,18 @@
             </div>
           </div>
           <!-- This is fourth button -->
-          <div id="completed" class="border flex-column flex-grow-1 ">
+          <div
+            id="completed"
+            class="border flex-column flex-grow-1  mobile-only large-tablet-only desktop-only "
+          >
             <div
               class="flex-row bg-completed-green align-items-center justify-content-center text-white "
             >
               <p>Completed</p>
-              <i class="material-icons" style="font-size: 40px;">
+              <i class="material-icons">
                 sentiment_very_satisfied
               </i>
+              <div id="done_gif"></div>
             </div>
             <div
               class=" flex-row bg-button-grey align-items-center justify-content-center "
@@ -123,27 +132,46 @@
         </div>
 
         <!-- This is progress bar -->
-        <div id="progress-status" class="border flex-row mr-2-rem ">
+        <div
+          id="progress-status"
+          class="border flex-row mr-2-rem large-tablet-only desktop-only "
+        >
           <p id="myprogressBar"></p>
         </div>
 
         <!-- This is the beginning of main -->
         <!-- This is submit form -->
 
-        <form class="flex-row mr-2-rem ">
+        <form class="flex-row mr-2-rem">
           <input
             id="input"
             type="text"
             placeholder="Add To Do"
-            class="border mr-rt-2-rem pd-1-rem font-size-1-rem"
+            class="border dt-mr-rt-2-rem mb-mr-rt-1-rem pd-1-rem font-size-1-rem padding "
           />
-          <button type="button" id="button" class="border pd-1-rem">
+          <button
+            type="button"
+            id="button"
+            class="border pd-1-rem large-tablet-only desktop-only button"
+          >
             Add Task
           </button>
+          <div class="mobile-only">
+            <i
+              id="mb-button"
+              class="material-icons mobile-button"
+              style="font-size:40px;"
+            >
+              add_box
+            </i>
+          </div>
           <div class="clear mr-lt-1-rem">
             <i class="fa fa-refresh fa-3x"> </i>
           </div>
-          <div class=" mr-lt-1-rem font-size-2-em" id="date"></div>
+          <div
+            class=" mr-lt-1-rem mb-date-font-size-1-em dt-date-font-size-2-em"
+            id="date"
+          ></div>
         </form>
       </main>
       <section>

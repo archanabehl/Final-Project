@@ -1,4 +1,31 @@
 document.addEventListener("DOMContentLoaded", function() {
+  function makeTheAppWork(buttonElement) {
+    buttonElement.addEventListener("click", function() {
+      var input = document.getElementById("input");
+      var todo = input.value;
+
+      // if inputValue is not empty
+      if (todo) {
+        addToDo(todo, id, false, false);
+        LIST.push({
+          name: todo,
+          id: id,
+          done: false,
+          trash: false
+        });
+        //add item to local storage(THIS CODE MUST BE ADDED WHERE THE LIST ARRAY IS UPDATED)
+        localStorage.setItem("TODO", JSON.stringify(LIST));
+        updateCounter();
+        update(); // document.querySelector(".totalToDo").innerHTML = id;
+        // progressBarCounter();
+        id++;
+      } else {
+        alert("please enter your list");
+      }
+      input.value = "";
+    });
+  }
+
   //Select the Elements
   var clear = document.querySelector(".clear");
   var list = document.querySelector("#list");
@@ -23,14 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
     LIST = [];
     id = 0;
   }
-  // document.querySelector(".totalToDo").innerHTML = id;
 
-  // function to add numbers to counter
-  // function dynamicCounter() {
-  //   document.querySelector(".totalToDo").innerHTML = id;
-  // }
-  // dynamicCounter();
-  //
   //FUNCTION (1)----------------------------------------------------
   //load items to the user's interface
   function loadList(array) {
@@ -39,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     updateCounter();
     update();
-    // progressBarCounter();
+    animation();
   }
 
   //clear the local storage
@@ -74,33 +94,6 @@ document.addEventListener("DOMContentLoaded", function() {
     list.insertAdjacentHTML(position, item);
   }
 
-  // ----------------------------------------------------- REALLY WANTED TO DO THIS
-  // function verifyItem() {
-  document.querySelector("button").addEventListener("click", function() {
-    var input = document.getElementById("input");
-    var todo = input.value;
-
-    // if inputValue is not empty
-    if (todo) {
-      addToDo(todo, id, false, false);
-      LIST.push({
-        name: todo,
-        id: id,
-        done: false,
-        trash: false
-      });
-      //add item to local storage(THIS CODE MUST BE ADDED WHERE THE LIST ARRAY IS UPDATED)
-      localStorage.setItem("TODO", JSON.stringify(LIST));
-      updateCounter();
-      update(); // document.querySelector(".totalToDo").innerHTML = id;
-      // progressBarCounter();
-      id++;
-    } else {
-      alert("please enter your list");
-    }
-    input.value = "";
-  });
-
   //FUNCTION (3)-------------------------------------------------------------
   //function to toggle the classes to check and uncheck
   function completeToDo(element) {
@@ -120,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     updateCounter();
     update();
+    animation();
     // progressBarCounter();
   }
 
@@ -130,6 +124,7 @@ document.addEventListener("DOMContentLoaded", function() {
     LIST[element.id].trash = true;
     updateCounter();
     update();
+    animation();
     // progressBarCounter();
   }
 
@@ -186,4 +181,29 @@ document.addEventListener("DOMContentLoaded", function() {
       return !item.trash;
     }).length;
   }
+
+  makeTheAppWork(document.querySelector(".button"));
+  makeTheAppWork(document.querySelector(".mobile-button"));
+
+  function animation() {
+    var doneGif = document.createElement("img");
+    doneGif.style.display = "none";
+
+    if (totalAmount() == completedAmount()) {
+      doneGif.style.display = "block";
+      doneGif.src = "https://media.giphy.com/media/26u4lOMA8JKSnL9Uk/giphy.gif";
+      document.getElementById("completed").style.position = "relative";
+      doneGif.style.position = "absolute";
+      doneGif.style.top = "0px";
+      doneGif.style.left = "0px";
+      doneGif.style.margin = "0px";
+      doneGif.style.width = "100%";
+      doneGif.style.height = "100%";
+      document.querySelector(".alreadyDone").appendChild(doneGif);
+    } else {
+      doneGif.style.display = "none";
+    }
+  }
+
+  animation();
 });
